@@ -1,4 +1,16 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<mat-chip-list #chipList aria-label="Fruit selection">
+	<mat-chip *ngFor="let fruit of fruits" [selectable]="true" (removed)="remove(fruit)">
+		{{fruit.name}}
+		<mat-icon matChipRemove>cancel</mat-icon>
+	</mat-chip>
+	<input placeholder="New fruit..."
+           [matChipInputFor]="chipList"
+           (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+
+	<!-- [matChipInputSeparatorKeyCodes]="separatorKeysCodes" 
+             [matChipInputAddOnBlur]="addOnBlur"
+             -->
+	<div>
+		<br> No. of fruits : {{fruits.length}}
+	</div>
