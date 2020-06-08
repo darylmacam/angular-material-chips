@@ -1,5 +1,6 @@
 import { Component, VERSION } from "@angular/core";
 import { MatChipInputEvent } from "@angular/material/chips";
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 @Component({
   selector: "my-app",
@@ -8,6 +9,7 @@ import { MatChipInputEvent } from "@angular/material/chips";
 })
 export class AppComponent {
   fruits: Fruit[] = [{ name: "Lemon" }, { name: "Lime" }, { name: "Apple" }];
+  chipInputKeyCodes = [ENTER, COMMA]
 
   remove(fruit: Fruit): void {
     const index = this.fruits.indexOf(fruit);
